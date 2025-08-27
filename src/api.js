@@ -19,3 +19,9 @@ export async function deleteTask(id) {
   const res = await fetch(`${API}/tasks/${id}`, { method: 'DELETE' });
   if (!res.ok) throw new Error('Delete failed');
 }
+export async function toggleTask(id) {
+  const res = await fetch(`${API}/tasks/${id}/toggle`, { method: 'PATCH' });
+  if (!res.ok) throw new Error('Toggle failed');
+  return res.json();
+}
+
